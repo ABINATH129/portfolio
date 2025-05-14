@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abinath</title>
+
+    <head>
+      <!-- Add this inside the <head> tag -->
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
+    </head>
+
+    <style>
+      /* Global styles */
+      body,
+      ul {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Navbar container */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #b5b1b1;
+        color: black;
+      }
+
+      /* Logo styles */
+      .navbar-logo {
+        height: 50px; /* Adjust as needed */
+        width: auto;
+      }
+
+      /* Menu styles */
+      .navbar-menu {
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar-menu li {
+        margin-left: 20px;
+      }
+
+      .navbar-menu a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+      }
+
+      .navbar-menu a:hover {
+        text-decoration: underline;
+        color: aqua;
+      }
+
+      /* Mobile Navbar Menu (Initially hidden) */
+      .navbar-menu-mobile {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px; /* Adjust if necessary */
+        right: 20px;
+        background-color: #b5b1b1;
+        padding: 20px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .navbar-menu-mobile li {
+        margin: 10px 0;
+      }
+
+      .navbar-menu-mobile a {
+        font-size: 18px;
+        color: black;
+      }
+
+      .navbar-menu-mobile a:hover {
+        color: aqua;
+      }
+
+      /* Mobile Navbar Toggle button (Hamburger) */
+      .navbar-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 30px;
+        color: black;
+        z-index: 10;
+      }
+
+      /* Hidden checkbox to control the toggle state */
+      .menu-toggle {
+        display: none;
+      }
+
+      /* Media Queries for Mobile and Tablet Devices */
+
+      /* Tablet and below (max-width: 768px) */
+      @media (max-width: 768px) {
+        .navbar-menu {
+          display: none; /* Hide the menu */
+        }
+
+        .navbar-toggle {
+          display: block; /* Show the hamburger icon */
+        }
+
+        /* When the checkbox is checked, display the mobile menu */
+        .menu-toggle:checked ~ .navbar-menu-mobile {
+          display: flex; /* Show mobile menu */
+        }
+      }
+
+      /* Phone and smaller devices (max-width: 480px) */
+      @media (max-width: 480px) {
+        .navbar {
+          padding: 10px 15px;
+        }
+
+        .navbar-logo {
+          height: 40px; /* Adjust logo size for smaller screens */
+        }
+
+        .navbar-menu-mobile a {
+          font-size: 16px;
+        }
+      }
+
+      /* home */
+
+      #home {
+        text-align: left;
+        display: flex;
+        padding: 65px 0px 250px 100px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        background-image: url(./images/homebackground.jpg);
+        background-size: cover;
+        height: 44vh;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .left {
+        padding-top: 50px;
+      }
+
+      #home h3 {
+        font-size: 1rem;
+        font-style: normal;
+      }
+
+      #home h4 {
+        font-size: 1rem;
+        font-weight: lighter;
+      }
+
+      #home p {
+        font-size: 1rem;
+      }
+
+      #home span {
+        color: red;
+      }
+
+      #home img {
+        height: 30vh;
+        width: auto;
+        margin: 100px 100px 0px 100px;
+      }
+
+      /* Media Queries for Responsiveness */
+
+      /* Small screens (tablets and below) */
+      @media (max-width: 768px) {
+        #home {
+          flex-direction: column;
+          padding: 50px 20px 100px 20px;
+          height: auto; /* Adjust height for small screens */
+          text-align: center;
+        }
+
+        #home img {
+          height: auto;
+          width: 80%;
+          margin: 10px 0;
+        }
+
+        #home h3 {
+          font-size: 1.2rem;
+        }
+
+        #home h4 {
+          font-size: 1rem;
+        }
+
+        #home p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Extra small screens (phones) */
+      @media (max-width: 480px) {
+        #home {
+          padding: 40px 15px 70px 15px;
+          height: auto; /* Adjust height for extra small screens */
+        }
+
+        #home img {
+          height: auto;
+          width: 90%;
+          margin: 10px 0;
+        }
+
+        #home h3 {
+          font-size: 1.1rem;
+        }
+
+        #home h4 {
+          font-size: 0.9rem;
+        }
+
+        #home p {
+          font-size: 1rem;
+        }
+      }
+
+      /* skills section */
+      .skills {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #e3f2fd, #e1bee7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Skills section */
+      .skills-section {
+        width: 90%;
+        max-width: 800px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .skills-section:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      .skills-section h1 {
+        font-size: 28px;
+        color: #4a4a8a;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Skills grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Skill card */
+      .skill-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .skill-card p {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #555;
+        transition: color 0.3s ease;
+      }
+
+      .skill-card:hover p {
+        color: #4caf50;
+      }
+
+      /* Circular progress container */
+      .circle {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #4caf50 calc(var(--percentage) * 1%),
+          #e0e0e0 calc(var(--percentage) * 1%)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .circle:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Center percentage text */
+      .circle span {
+        position: absolute;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+
+      .circle:hover span {
+        color: #4caf50;
+      }
+
+      .workexperience {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0px 0px 0px 4px;
+        background-color: #f0f0f5;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        padding-top: 35px;
+        color: #4a4a8a;
+      }
+
+      .experience-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px 0;
+        padding: 15px 15px 15px 45px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .job-title {
+        font-size: 1.5rem;
+        color: #0056b3;
+        margin: 5px 0;
+      }
+
+      .company {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      .duration {
+        font-size: 0.9rem;
+        color: #999;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 2.5;
+        color: #555;
+      }
+
+      /* education */
+
+      .education {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #4a4a8a;
+      }
+
+      .timeline {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #0056b3;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin: 20px 0;
+        padding: 20px;
+        width: calc(50% - 40px);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+        transform: translateX(-10%);
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        transform: translateX(10%);
+      }
+
+      .timeline-item:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        right: -12px;
+        width: 20px;
+        height: 20px;
+        background: #0056b3;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(even)::before {
+        left: -12px;
+        right: auto;
+      }
+
+      .degree {
+        font-size: 1.5rem;
+        color: #0056b3;
+        margin-bottom: 10px;
+      }
+
+      .institution {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .year {
+        font-size: 1rem;
+        color: #999;
+        margin-bottom: 15px;
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #555;
+      }
+
+      /* Responsive Styles */
+
+      /* For tablets and below (max-width: 768px) */
+      @media (max-width: 768px) {
+        .timeline {
+          padding-left: 30px; /* Add some padding for better spacing */
+        }
+
+        .timeline-item {
+          width: calc(100% - 40px); /* Full width for each item */
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          left: 0;
+          transform: translateX(0); /* Center items on mobile */
+        }
+
+        .timeline::before {
+          left: 20px;
+          transform: translateX(0); /* Adjust the timeline line */
+        }
+
+        .section-title {
+          font-size: 1.5rem; /* Adjust title font size for smaller screens */
+          margin-bottom: 30px;
+        }
+
+        .degree {
+          font-size: 1.2rem;
+        }
+
+        .institution {
+          font-size: 1rem;
+        }
+
+        .year {
+          font-size: 0.9rem;
+        }
+
+        .description {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* For phones and smaller devices (max-width: 480px) */
+      @media (max-width: 480px) {
+        .timeline-item {
+          width: 100%; /* Make each item span full width */
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .timeline::before {
+          left: 10px; /* Adjust the timeline line for very small screens */
+        }
+
+        .section-title {
+          font-size: 1.2rem; /* Adjust title font size for very small screens */
+          margin-bottom: 20px;
+        }
+
+        .degree {
+          font-size: 1.1rem;
+        }
+
+        .institution {
+          font-size: 0.9rem;
+        }
+
+        .year {
+          font-size: 0.8rem;
+        }
+
+        .description {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* projects */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 50px 0;
+      }
+
+      .projects-section {
+        width: 100%;
+        text-align: center;
+      }
+
+      .projects-section h2 {
+        font-size: 2.5em;
+        color: #4a4a8a;
+        margin-bottom: 50px;
+        margin-top: 50px;
+      }
+
+      .project-buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+      }
+
+      .project-button {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        margin-bottom: 30px; /* Added spacing between buttons for small screens */
+      }
+
+      .project-button h3 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .project-button p {
+        font-size: 1.1em;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .project-button .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .project-button:hover {
+        transform: translateY(-10px);
+      }
+
+      .project-button:hover .button {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+
+      .project-button .button:hover {
+        background-color: #388e3c;
+      }
+
+      /* Responsive Design */
+
+      /* For tablets and smaller screens (max-width: 768px) */
+      @media (max-width: 768px) {
+        .project-buttons-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .project-button {
+          width: 90%; /* Make buttons take up most of the screen width */
+          max-width: 350px; /* Set a max width to prevent them from becoming too large */
+        }
+
+        .project-button h3 {
+          font-size: 1.3em; /* Slightly reduce the font size for smaller screens */
+        }
+
+        .project-button p {
+          font-size: 1em; /* Adjust the paragraph font size for better readability */
+        }
+
+        .project-button .button {
+          font-size: 1em; /* Adjust the button font size */
+        }
+      }
+
+      /* For small devices (max-width: 480px) */
+      @media (max-width: 480px) {
+        .project-buttons-container {
+          gap: 15px;
+        }
+
+        .project-button {
+          width: 100%; /* Make the buttons full width on small screens */
+          max-width: 100%; /* Remove the max-width restriction */
+        }
+
+        .project-button h3 {
+          font-size: 1.2em; /* Reduce the title size further */
+        }
+
+        .project-button p {
+          font-size: 0.9em; /* Adjust the paragraph font size for smaller screens */
+        }
+
+        .project-button .button {
+          font-size: 1em; /* Adjust the button font size */
+        }
+      }
+
+      /* footer */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-content {
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-section {
+        width: 30%;
+        min-width: 250px;
+      }
+
+      .footer-section h3 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .footer-section p,
+      .footer-section ul {
+        font-size: 1em;
+        color: #ccc;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin: 10px 0;
+      }
+
+      .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section ul li a:hover {
+        color: #4caf50;
+      }
+
+      .footer-section ul li a i {
+        margin-right: 10px; /* Space between icon and text */
+      }
+
+      .footer-bottom {
+        width: 100%;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 1.1em;
+        color: #ccc;
+      }
+
+      .footer-bottom p {
+        margin: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-section {
+          width: 100%;
+          text-align: center;
+        }
+
+        .footer-bottom {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- Logo -->
+      <img src="./images/portfolio.png" alt="" class="navbar-logo" />
+
+      <!-- Checkbox for mobile menu toggle -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="navbar-toggle">&#9776;</label>
+      <!-- Hamburger icon -->
+
+      <!-- Navbar Menu -->
+      <ul class="navbar-menu">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Skills">Skills</a></li>
+        <li><a href="#WorkExperience">Work-Experience</a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Navbar Menu -->
+      <ul class="navbar-menu-mobile">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Skills">Skills</a></li>
+        <li><a href="#WorkExperience">Work-Experience</a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="Home">
+      <div id="home">
+        <div class="left">
+          <h5>--- HELLO</h5>
+          <h3>I'm <span>ABINATH SETTU</span></h3>
+          <h4>
+            Aspiring Full-Stack Developer | Building the Future of Web
+            Applications
+          </h4>
+          <p>
+            Passionate about crafting dynamic web applications, mastering new
+            technologies, and delivering user-friendly solutions.. <br />
+            Passionate about learning new technologies and bringing ideas to
+            life through code.
+          </p>
+        </div>
+        <div class="right">
+          <img src="./images/profile-r.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section id="Skills">
+      <div class="skills">
+        <div class="skills-section">
+          <h1>My Skills</h1>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="circle">
+                <div class="progress" style="--percentage: 90"></div>
+                <span>95%</span>
+              </div>
+              <p>HTML</p>
+            </div>
+            <div class="skill-card">
+              <div class="circle">
+                <div class="progress" style="--percentage: 80"></div>
+                <span>95%</span>
+              </div>
+              <p>CSS</p>
+            </div>
+            <div class="skill-card">
+              <div class="circle">
+                <div class="progress" style="--percentage: 70"></div>
+                <span>50%</span>
+              </div>
+              <p>JavaScript</p>
+            </div>
+            <div class="skill-card">
+              <div class="circle">
+                <div class="progress" style="--percentage: 60"></div>
+                <span>75%</span>
+              </div>
+              <p>MySQL</p>
+            </div>
+            <div class="skill-card">
+              <div class="circle">
+                <div class="progress" style="--percentage: 60"></div>
+                <span>75%</span>
+              </div>
+              <p>Python</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="WorkExperience">
+      <div class="workexperience">
+        <h1 class="section-title">Work Experience</h1>
+
+        <div class="experience-card">
+          <h2 class="job-title">Full-stack Developer</h2>
+          <p class="company">Cloud i5 Technologies</p>
+          <p class="duration">July 2024 - August 2024</p>
+          <p class="description">
+            * Developed responsive web pages using HTML, CSS, and JavaScript to
+            improve user engagement. <br />
+            * Collaborated with designers to implement to know the level of my
+            own knowledge in my section. <br />
+            * Worked with modern front-end frameworks like React to enhance new
+            skills to learn more. <br />
+            * Regularly tested and debugged code across multiple browsers and
+            devices to ensure cross-platform compatibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="Education">
+      <div class="education">
+        <div class="container">
+          <h1 class="section-title">Education</h1>
+          <ul class="timeline">
+            <li class="timeline-item">
+              <h2 class="degree">
+                Bachelor of Engineering in Electronics and Communication
+              </h2>
+              <p class="institution">Anna University</p>
+              <p class="year">2021 - 2025</p>
+              <p class="description">
+                Specialized in electronics, embedded systems, and renewable
+                energy technologies. Completed projects on IoT-based systems and
+                circuit design.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h2 class="degree">Higher Secondary Education</h2>
+              <p class="institution">Vidhya Vikas Matric.Hr Sec School</p>
+              <p class="year">2020 - 2021</p>
+              <p class="description">
+                Achieved excellent grades in Mathematics, Physics, and
+                Chemistry.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h2 class="degree">Secondary School Education</h2>
+              <p class="institution">Vidhya Vikas Matric.Hr Sec School</p>
+              <p class="year">2019 - 2020</p>
+              <p class="description">
+                Gained foundational knowledge in science and mathematics.
+                Actively participated in extracurricular activities.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="Projects">
+      <div class="projects-section">
+        <h2>Projects</h2>
+        <div class="project-buttons-container">
+          <div class="project-button">
+            <h3>
+              Project 1 <br /><br />
+              ONLINE CHAT-BOT FOR TICKET BOOKING
+            </h3>
+            <br />
+
+            <h4>SMART INDIA HACKATHON</h4>
+            <br />
+            <p>
+              A online Chat-bot for the ticket booking for all the peoples based
+              on their basic details. This chat bot helps to easy getting of a
+              ticket for all aged peoples easily.
+            </p>
+            <br />
+            <a href="#project1" class="button">View Full Project</a>
+          </div>
+          <div class="project-button">
+            <h3>
+              Project 2 <br /><br />
+              ONLINE EDUCATION USING VR
+            </h3>
+            <br />
+
+            <h4>SMART INDIA HACKATHON</h4>
+            <br />
+            <p>
+              This is a new technique to learn the Education like in a real
+              Class Room View. This helps the students to learn easily with
+              clearly. This can able to learn the remote peoples.
+            </p>
+            <br />
+            <a href="#project2" class="button">View Full Project</a>
+          </div>
+          <div class="project-button">
+            <h3>
+              Project 3 <br /><br />
+              GARBAGE SEGREGATION AND BIN LEVEL MONITORING
+            </h3>
+
+            <h4>MINI PROJECT</h4>
+            <br />
+            <p>
+              This is the project made for the PWD WOrkers can able to know the
+              the level of a Garbage in The can and the Indication for it. And
+              it can be help for the workers to ease the work pressure.<br /><br />
+              <a href="#project3" class="button">View Full Project</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h3>About Me</h3>
+            <p>
+              Passionate developer with a love for creating innovative and
+              user-friendly applications.
+            </p>
+            <p><strong>Address:</strong> 1234 Main St, City, Country</p>
+          </div>
+          <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section social">
+            <h3>Follow Me</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/yourprofile"
+                  target="_blank"
+                  ><i class="fab fa-linkedin"></i> LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/yourusername" target="_blank"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+              </li>
+              <li>
+                <a href="https://twitter.com/yourusername" target="_blank"
+                  ><i class="fab fa-twitter"></i> Twitter</a
+                >
+              </li>
+              <li>
+                <a href="https://wa.me/6369468710" target="_blank"
+                  ><i class="fab fa-whatsapp"></i> WhatsApp</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Abinath. All rights reserved.</p>
+        </div>
+      </footer>
+      
+    </section>
+  </body>
+</html>
